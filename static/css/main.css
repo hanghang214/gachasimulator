@@ -1,0 +1,368 @@
+.header {
+  color: #ffa402;
+  padding: 30px;
+  font-size: 30px;
+  left: 25px;
+  top: 25px;
+  background-position: center;
+  position: absolute;
+  z-index: 1000;
+}
+.sub-header {
+  color: #000000;
+  padding: 0px;
+  font-size: 100px;
+  background-position: center;
+  position: relative;
+  animation: ease-in;
+  z-index: 10;
+}
+.cover {
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  transform: scale(0.7);
+  z-index: 1;
+  opacity: 1.0;
+}
+.background {
+  background-image: url('../others/705836.jpg');
+  background-size: cover;  /* 调整背景图片的尺寸以覆盖整个元素 */
+  background-position: center;  /* 将背景图片居中 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: 0;
+}
+.login_background {
+  background-image: url('../others/login_background2.png');
+  background-size: cover;  /* 调整背景图片的尺寸以覆盖整个元素 */
+  background-position: center;  /* 将背景图片居中 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: 0;
+}
+.enter{
+  color: #ffa402;
+  padding: 10px;
+  z-index: 100;
+}
+.top_bar {
+    background: antiquewhite;
+    position: relative;
+    left: 0%;
+    top: 30%;
+}
+.link_style {
+    font-size: 30px;
+    color: #ffa402;
+}
+
+
+
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: unset;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+ul {
+  position: relative;
+  display: flex;
+}
+
+ul li {
+  /* 如果设置为inline-block，会有空隙 */
+  /* https://stackoverflow.com/questions/19038799/why-is-there-an-unexplainable-gap-between-these-inline-block-div-elements */
+  list-style: none;
+  width: 120px;
+  line-height: 40px;
+  text-align: center;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.slider {
+  width: 100px;
+  height: 40px;
+  background-color: #5352ed;
+  border-radius: 4px;
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  z-index: -1;
+  transition: all ease 0.4s;
+  animation: 2s ease-in-out waves infinite;
+}
+
+li:nth-child(1):hover ~ .slider {
+  left: 10px;
+}
+
+li:nth-child(2):hover ~ .slider {
+  left: 128px;
+}
+
+li:nth-child(3):hover ~ .slider {
+  left: 248px;
+}
+
+li:nth-child(4):hover ~ .slider {
+  left: 368px;
+}
+
+li:nth-child(5):hover ~ .slider {
+  left: 488px;
+}
+
+@keyframes waves {
+  from {
+    clip-path: polygon(
+      0% 17%,
+      9% 10%,
+      18% 4%,
+      30% 0%,
+      43% 1%,
+      49% 4%,
+      57% 7%,
+      66% 10%,
+      78% 11%,
+      89% 11%,
+      96% 9%,
+      100% 7%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 4%,
+      6% 9%,
+      13% 13%,
+      23% 15%,
+      31% 16%,
+      42% 15%,
+      49% 13%,
+      61% 10%,
+      71% 5%,
+      81% 3%,
+      90% 2%,
+      100% 5%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  to {
+    clip-path: polygon(
+      0% 17%,
+      9% 10%,
+      18% 4%,
+      30% 0%,
+      43% 1%,
+      49% 4%,
+      57% 7%,
+      66% 10%,
+      78% 11%,
+      89% 11%,
+      96% 9%,
+      100% 7%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+.sticky-header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+button {
+  margin: 20px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+.btn-6 {
+  background: rgb(247,150,192);
+background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-6 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-6:before,
+.btn-6:after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 1px;
+ box-shadow:
+   -1px -1px 20px 0px rgba(255,255,255,1),
+   -4px -4px 5px 0px rgba(255,255,255,1),
+   7px 7px 20px 0px rgba(0,0,0,.4),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+}
+.btn-6:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.btn-6:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+.btn-6:hover{
+  background: transparent;
+  color: #76aef1;
+  box-shadow: none;
+}
+.btn-6:hover:before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.btn-6:hover:after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.btn-6 span:before,
+.btn-6 span:after {
+  position: absolute;
+  content: "";
+  box-shadow:
+   -1px -1px 20px 0px rgba(255,255,255,1),
+   -4px -4px 5px 0px rgba(255,255,255,1),
+   7px 7px 20px 0px rgba(0,0,0,.4),
+   4px 4px 5px 0px rgba(0,0,0,.3);
+}
+.btn-6 span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: .5px;
+  transition: all 500ms ease;
+}
+.btn-6 span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: .5px;
+  transition: all 500ms ease;
+}
+.btn-6 span:hover:before {
+  width: 100%;
+}
+.btn-6 span:hover:after {
+  width: 100%;
+}
+table th {
+  width: 200px; /* 设置宽度为100像素 */
+}
+table {
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.5); /* 设置背景颜色为半透明的灰色 */
+}
+.ytable{
+  height: 650px;
+  overflow-y: scroll;
+}
+table td{
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  animation: ease-in;
+}
+
+.container {
+    align-items: center;
+    justify-content: center;
+  position: center;
+  display: block;
+}
+
+.item {
+  position: center;
+  font-size: 20px;
+  color: white;
+}
+
+.center-table {
+  margin: 0 auto;
+}
+
+.text-container{
+  background-color: rgba(0, 0, 0, 0.5); /* 使用 RGBA 颜色值，设置半透明的黑色背景 */
+  padding: 10px; /* 添加一些内边距，使文字与背景之间有间隔 */
+}
+
+.gacha-times {
+  font-weight: bold;
+  font-size: 45px;
+  color: #ff9900;
+}
+.gacha-five {
+  font-weight: 700;
+  font-size: 60px;
+  color: #ffa100;
+}
+.gacha-four {
+  font-weight: 700;
+  font-size: 60px;
+  color: #a100ff;
+}
+.gacha-three {
+  font-weight: 700;
+  font-size: 60px;
+  color: #0065ff;
+}
+.total-power {
+  font-weight: 700;
+  font-size: 75px;
+  color: #ff0000;
+}
+.total-result {
+  font-weight: 700;
+  font-size: 75px;
+  color: #ffffff;
+}

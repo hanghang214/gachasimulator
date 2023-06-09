@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꒰ঌ( ⌯' '⌯)໒꒱</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <link rel="stylesheet" href="../static/css/char-style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Import Vue 3 -->
+    <script src="//unpkg.com/vue@3"></script>
+    <!-- Import component library -->
+    <script src="//unpkg.com/element-plus"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+        body {
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        h2 {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <form method="POST" action="/">
+        <h2>FGO抽卡模拟器</h2>
+        <div class="input-box">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-box">
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" required>
+        </div>
+        <div class="btn-box">
+            <a href="/gacha">游客登录</a>
+            <div>
+                <button type="submit">提交</button>
+                <button type="reset">重置</button>
+            </div>
+            {% if data == "登录成功" %}
+	<script>
+		alert("登录成功！")
+        window.location.href="./gacha";
+	</script>
+    {% endif %}
+    {% if data == "新用户注册成功" %}
+	<script>
+		alert("新用户注册成功")
+        window.location.href="./gacha";
+	</script>
+    {% endif %}
+        {% if data == "登录失败，请检查密码重新输入" %}
+	<script>
+		alert("登录失败，请检查密码重新输入")
+	</script>
+    {% endif %}
+        </div>
+    </form>
+    </div>
+<script type="text/javascript"></script>
+
+</body>
+</html>

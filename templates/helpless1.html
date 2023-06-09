@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>没啥用</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/helpless.css') }}">
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakana-widget@2.5.0/lib/sakana.min.css"/>-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>dy {
+
+        bo  animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        html .sakana-box{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        transform-origin: 100% 100%; /* 从右下开始变换 */
+        }
+        .for_button{
+        position: relative;
+        left: 42%;
+        top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div>
+<header class=sticky-header>
+      <nav>
+        <ul>
+          <li><a href={{ url_for('index') }}>回到首页</a></li>
+          <li><a href={{ url_for('gacha') }}>开始抽卡</a></li>
+          <li><a href={{ url_for('my_gacha_result') }}>抽卡记录</a></li>
+          <li><a href={{ url_for('helpless1') }}>抽卡结果分析</a></li>
+          <li><a href={{ url_for('helpless2') }}>实验报告</a></li>
+          <div class="slider"></div>
+        </ul>
+      </nav>
+    </header>
+</div>
+<div><br><br></div>
+<div class="container">
+<h2 style="color: goldenrod;font-size: 35px">抽卡结果分析</h2>
+    <div class="text-container" style="text-align: center;">
+<p class="h4" style="color: white;">根据统计，您已经抽卡了<span class="gacha-times">{{ gacha_times }}</span>次</p>
+<p class="h4" style="color: white;">目前总共获取了</p>
+        <p class="h4" style="color: white;"><span class="gacha-five">{{ user_five }}</span>个五星灵基/礼装</p>
+        <p class="h4" style="color: white;"><span class="gacha-four">{{ user_four }}</span>个四星灵基/礼装</p>
+        <p class="h4" style="color: white;"><span class="gacha-three">{{ user_three }}</span>个五星灵基/礼装</p>
+        <p class="h4" style="color: white;">您的总厨力为<span class="total-power">{{ user_total_score }}</span>，抽卡{{ gacha_times }}次对应的平均总厨力为<span class="total-power">{{ user_average_score }}</span></p>
+    <p class="h4" style="color: white;">总体来说，您很      <span class="total-result">{{ result }}</span></p>
+    </div>
+<div class="for_button">
+  <button class="custom-btn btn-6" onclick="sendRequest()"><span>重新开始</span></button>
+</div>
+<div class="sakana-box"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sakana"></script>
+<script>
+Sakana.init({
+  el:         '.sakana-box',     // 启动元素 node 或 选择器
+  scale:      .5,                // 缩放倍数
+  canSwitchCharacter: true,      // 允许换角色
+});
+</script>
+
+<script>
+function sendRequest() {
+  fetch('/helpless1', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ data: 'remake重开' }) // 向后台发送一个字符串类型的数据
+  })
+  .then(response => {
+    // 处理响应结果
+    if (response.ok) {
+      // 请求成功
+      return response.text(); // 将响应的数据作为字符串处理
+    } else {
+      // 请求失败
+      throw new Error('Request failed');
+    }
+  })
+  .catch(error => {
+    // 处理错误
+    console.error(error);
+  });
+  window.alert("重开成功！");
+  window.location.reload();
+}
+</script>
+
+</body>
+</html>

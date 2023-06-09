@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更是没用</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/helpless.css') }}">
+
+    <style>
+        body {
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        html .sakana-box{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        transform-origin: 100% 100%; /* 从右下开始变换 */
+        }
+    </style>
+</head>
+<body>
+<div>
+<header class=sticky-header>
+      <nav>
+        <ul>
+          <li><a href={{ url_for('index') }}>回到首页</a></li>
+          <li><a href={{ url_for('gacha') }}>开始抽卡</a></li>
+          <li><a href={{ url_for('my_gacha_result') }}>抽卡记录</a></li>
+          <li><a href={{ url_for('helpless1') }}>抽卡结果分析</a></li>
+          <li><a href={{ url_for('helpless2') }}>实验报告</a></li>
+          <div class="slider"></div>
+        </ul>
+      </nav>
+    </header>
+</div>
+<div><br><br></div>
+<embed src="../static/others/report.pdf" type="application/pdf" width="100%" height="760px" />
+
+<div class="sakana-box"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/sakana"></script>
+<script>
+Sakana.init({
+  el:         '.sakana-box',     // 启动元素 node 或 选择器
+  scale:      .5,                // 缩放倍数
+  canSwitchCharacter: true,      // 允许换角色
+});
+</script>
+</body>
+</html>

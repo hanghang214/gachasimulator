@@ -1,0 +1,48 @@
+body {
+    background-image: url('../others/705836.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.for_button{
+    position: relative;
+    left: 42%;
+    top: auto;
+}
+
+.image-slider {
+  width: 50%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+    top: 40px;
+}
+
+.image-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+    display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.image-slider .prev-btn,
+.image-slider .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  cursor: pointer;
+}
+
+.image-slider .prev-btn {
+  left: 16px;
+}
+
+.image-slider .next-btn {
+  right: 16px;
+}
+
